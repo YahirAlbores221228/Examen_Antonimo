@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/index.css">
+    <title>Analizador de Antonimo</title>
+</head>
+
+<body>
+    <form method="post">
+        <textarea name="text"></textarea>
+        <input type="submit" value="Analizar">
+    </form>
+    <table>
+        <tr>
+            <th>Token</th>
+            <th>Antónimo</th>
+            <th>Símbolo</th>
+            <th>Dígito</th>
+            <th>Línea</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+            <td>{{ result[2] }}</td>
+            <td>{{ result[3] }}</td>
+            <td>{{ result[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Lista de Antónimos</h2>
+    <table>
+        <tr>
+            <th>Palabra</th>
+            <th>Antónimo</th>
+        </tr>
+        {% for palabra, antonimo in antonimos.items() %}
+        <tr>
+            <td>{{ palabra }}</td>
+            <td>{{ antonimo }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
